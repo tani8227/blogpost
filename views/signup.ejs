@@ -1,0 +1,43 @@
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+
+    <h3> Sign up Page !! </h3>
+    <form id="form-validate" action="/api/user/sign-up" method="post">
+        <input type="text" id="name" name="name" placeholder="enter your name" required><br><br>
+        <input type="text" id="email" name="email" placeholder="enter your email" required><br><br>
+        <input type="password" id="password" name="password" placeholder="enter password" required><br><br>
+        <button type="submit">Register</button>
+    </form>
+</div>
+
+
+<script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+
+<script>
+
+    const validation = new JustValidate('#form-validate');
+
+    validation
+        .addField('#name',
+            [
+                {
+                    rule: 'required'
+                }
+            ])
+        .addField('#email', [
+            {
+                rule: 'required'
+            },
+            {
+                rule: 'email'
+            }])
+        .addField('#password',
+        [
+            {
+                rule:'required'
+            },
+            {
+                rule:'minLength', value:4 , errorMessage:'Password minimum 5 Character'
+            }
+        ])    
+
+</script>

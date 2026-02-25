@@ -1,0 +1,38 @@
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <h1 style="color: antiquewhite; color: rgba(0, 0, 0, 0.938) ; font-weight:900;">Login Here</h1>
+    <form id="form-validate" action="/api/user/sign-in" method="post" style="width: fit-content;">
+        <input type="text" name="email" id="email" placeholder="Enter Your Email" required><br><br>
+        <input type="password" name="password" placeholder="Enter Password" required><br><br>
+        <button type="submit">Login</button>
+        <p><a style="text-decoration: none; color:purple;" href="/api/user/sign_up">
+                Register here!!!
+            </a>
+        </p>
+    </form>
+</div>
+
+
+<script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+
+<script>
+   
+   const validation= new JustValidate('#form-validate');
+
+   validation
+   .addField('#name',
+   [
+    {
+        rule:"required"
+    }
+   ])
+   .addField('#password',
+   [
+    {
+      rule:'required'
+    },
+    {
+        rule:'minLength', value:5, errorMessage:"Password minimum 5 Character"
+    }
+])
+
+</script>

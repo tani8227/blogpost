@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<div class="container mt-4">
+    <div class="row">
+
+        <% if (blogs.length===0) { %>
+            <p class="text-center">No blogs found</p>
+            <% } %>
+                <% blogs.forEach(function(blog) { %>
+                    <div class="col-md-3 mb-4">
+                        <div class="card h-100 shadow-sm">
+
+                            <% if (blog.blog_img && blog.blog_img.url) { %>
+                                <a href="/api/user/blog/detail-page/<%= blog.id %>">
+                                    <img src="<%= blog.blog_img.url %>" class="card-img-top"
+                                        style="height:180px; object-fit:cover;">
+                                </a>
+                                <% } %>
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <%= blog.title %>
+                                        </h5>
+                                        <p class="card-text">
+                                            <%= blog.description %>
+                                        </p>
+                                        <div>
+                                            <a style="text-decoration: none;"
+                                                href="/api/user/blog/delete_blog/<%= blog.id %>">
+                                                <button type="button" class="btn btn btn-danger">
+                                                    Delete
+                                                </button>
+                                            </a>
+                                            <a style="text-decoration: none;"
+                                                href="/api/user/blog/edit-page/<%= blog.id %>">
+                                                <button type="button" class="btn btn btn-success">
+                                                    Edit
+                                                </button>
+                                            </a>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="card-footer text-muted">
+                                        <small>Posted By : <%= blog.author %></small></br>
+                                        <small>Posted Date : <%= blog.createdAt %></small>
+                                    </div>
+                        </div>
+                    </div>
+                    <% }) %>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+

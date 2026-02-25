@@ -1,0 +1,23 @@
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 5px;">
+
+    <% if(blog){%>
+        <%if(blog.blog_img&&blog.blog_img.url){%>
+            <div class="card" style="display: flex; justify-content: center;align-items: center; width: 20%; height: 50%; ">
+                <div style="display: flex; justify-content: center;align-items: center;  width: 70%; padding: 1px;">
+
+                    <img src="<%= blog.blog_img.url %>" class="card-img-top"   >
+                </div>
+                <div class="card-body" >
+                    <p class="card-title">
+                      Title : <%= blog.title %>
+                    </p>
+                    <p class="card-text">Description : <%= blog.description %></p>
+                </div>
+                <%}%>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Posted By : <%= blog.author %></li>
+                        <li class="list-group-item">Posted Date : <%= blog.createdAt %></li>
+                    </ul>
+            </div>
+            <%}%>
+</div>

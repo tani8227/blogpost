@@ -1,0 +1,14 @@
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+
+  <h2 style="color: antiquewhite; color: rgba(0, 0, 0, 0.938) ; font-weight:900;">Post Blog</h2>
+  </br>
+  <form action="/api/user/blog/create" method="post" enctype="multipart/form-data">
+    <input type="text" name="title" placeholder="Enter Blog Title" required><br><br>
+    <input type="text" name="author" placeholder="Enter Author Name" required><br><br>
+    <input type="text" name="category" placeholder="type the category" required><br><br>
+    <input type="file" name="blog_img" placeholder="upload Image" required><br><br>
+    <textarea  name="description" rows="4" cols="50" placeholder="type here ..."></textarea>
+  </br></br>
+  <button type="submit">Publish Blog</button>
+</form>
+</div>
