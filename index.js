@@ -1,5 +1,7 @@
 import express from "express";
 const port = 8000;
+import dotenv from "dotenv";
+dotenv.config();
 import routes from "./routes/index.js"
 import { DB, sequelize } from './config/db.js';
 import path from "node:path";
